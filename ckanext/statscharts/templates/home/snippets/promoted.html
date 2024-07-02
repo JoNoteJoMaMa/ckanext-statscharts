@@ -1,0 +1,111 @@
+{% set intro = g.site_intro_text %}
+{% set stats = h.get_site_statistics() %}
+<div class="container" style="margin-top: 10px;">
+  <div class="justify-content-center">
+    {% if intro %}
+      {{ h.render_markdown(intro) }}
+    {% else %}
+      <h1 class="page-heading">{{ _("Welcome to CKAN") }}</h1>
+      <p style="font-size: 15px">
+        {% trans %}This is a nice introductory paragraph about CKAN or the site
+        in general. We don't have any copy to go here yet but soon we will
+        {% endtrans %}
+      </p>
+    {% endif %}
+  </div>
+
+  <div class="container" style="margin-left: 70px">
+    <div class="row align-items-center">
+      <div class="col">
+        {% block home_image %}
+        <section class="featured media-overlay hidden-xs">
+          {% block home_image_content %}
+            {% if g.promoted_banner %}
+              <img class="img-responsive" style="min-width: 100%;" src="{{ h.url_for_static(g.promoted_banner) }}" alt="Agency Catalog promote banner" width="420" height="220" />
+            {% else %}
+              <img class="img-responsive" style="min-width: 100%;" src="{{ h.url_for_static('/base/images/gdc-banner.jpg') }}" alt="GD Catalog banner" width="420" height="220" />
+            {% endif %}
+          {% endblock %}
+        </section>
+      {% endblock %}
+      </div>
+      <div class="col d-flex justify-content-center align-items-center flex-column" style="margin-top: 50px">
+        <div id="chartTitle" style="margin-bottom: 5px; font-size: 16px; font-weight: bold;">{{_('Overview')}}</div>
+        <canvas id="myPieChart" style="max-width: 400px;max-height:400px" ></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Include Chart.js from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  // Data for the pie chart
+  const data = {
+    labels: ["{{_('dataset')}}"+" "+"{{(stats.dataset_count)}}", "{{_('organization')}}"+" "+"{{(stats.organization_count)}}", "{{_('group')}}"+" "+"{{(stats.group_count)}}"],
+    datasets: [{
+      data: [{{(stats.dataset_count)}}, {{(stats.organization_count)}}, {{(stats.group_count)}}],
+      backgroundColor: [
+        'rgba(92, 224, 185, 1)',
+        'rgba(105, 88, 140, 1)',
+        'rgba(231, 77, 29, 1)',
+      ],
+      borderColor: [
+        'rgba(92, 224, 185, 1)',
+        'rgba(105, 88, 140, 1)',
+        'rgba(231, 77, 29, 1)',
+      ],
+      borderWidth: 1
+    }]
+  };
+
+  function allValuesAreZero(dataArray) {
+    return dataArray.every(value => value === 0);
+  }
+
+  // Configuration options for the pie chart
+  const config = {
+    type: 'pie',
+    data: data,
+    options: {
+      responsive: true,
+      layout: {
+        padding: {
+          top: 20
+        }
+      },
+      plugins: {
+        legend: {
+          position: 'bottom'
+        }
+      }
+    },
+
+    plugins: [{
+      id: 'emptyCirclePlugin',
+      beforeDraw: (chart) => {
+        if (allValuesAreZero(chart.data.datasets[0].data)) {
+          const { ctx, chartArea: { width, height } } = chart;
+          ctx.save();
+          ctx.clearRect(0, 0, width, height);
+          ctx.beginPath();
+          ctx.arc(width / 2, height / 2, Math.min(width, height) / 2, 0, 2 * Math.PI);
+          ctx.fillStyle = 'rgba(240, 240, 240, 1)'; // Set the background color here
+          ctx.fill();
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = 'rgba(0, 0, 0, 1)'; // Optional: set the border color here
+          ctx.stroke();
+          ctx.restore();
+        }
+      }
+    }]
+  };
+  
+  // Render the pie chart
+  window.onload = function() {
+    const ctx = document.getElementById('myPieChart').getContext('2d');
+    new Chart(ctx, config);
+  };
+</script>
+

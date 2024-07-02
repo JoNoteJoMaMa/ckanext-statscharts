@@ -1,0 +1,24 @@
+{% block group_item %}
+  <section class="container">
+    {% block group_item_header %}
+      <header>
+        {% block group_item_header_title %}
+          <h3 class="media-heading" style="color: white; text-decoration: none;">
+            <div class="row justify-content-center">
+              <div class="col-sm-auto">
+                <span class="color-circle" style="background-color: {{ color }}; width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 8px;"></span>
+                <a href="{{ h.url_for(controller='group', action='read', id=group.name) }}" style="color: white; text-decoration: none;">
+                {{ group.title or group.name }}
+              </a>
+              </div>
+              <div class="col-sm-auto">
+                ( {{group.package_count}} )
+              </div>
+            </div>
+          </h3>
+        {% endblock %}
+      </header>
+    {% endblock %}
+  </section>
+{% endblock %}
+

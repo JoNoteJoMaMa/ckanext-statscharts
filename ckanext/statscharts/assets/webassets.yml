@@ -1,0 +1,14 @@
+# statscharts-js:
+#   filter: rjsmin
+#   output: ckanext-statscharts/%(version)s-statscharts.js
+#   contents:
+#     - js/statscharts.js
+#   extra:
+#     preload:
+#       - base/main
+
+# statscharts-css:
+#   filter: cssrewrite
+#   output: ckanext-statscharts/%(version)s-statscharts.css
+#   contents:
+#     - css/statscharts.css

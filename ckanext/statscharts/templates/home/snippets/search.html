@@ -1,0 +1,44 @@
+{% set tags = h.get_facet_items_dict('tags', c.search_facets, limit=3) %}
+{% set placeholder = _('Search Info...') %}
+<script src="https://kit.fontawesome.com/202890c608.js" crossorigin="anonymous"></script>
+<style>
+label[for="field-main-search"] {
+    margin-top: 0;
+    margin-bottom: 7px;
+    font-size: 24px;
+    line-height: 40px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.raz {
+    width: 60%;
+    height: 25px;
+    margin: 0 auto;
+    border: none;
+    border: solid 1px #ccc;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+</style>
+
+<div class="module module-narrow module-shallow">
+  <form class="module-content search-form site-search" method="get" action="{% url_for 'dataset.search' %}" style="border-bottom: none;">
+    <div class="center">
+      <h1 for="field-main-search" style="color: #FFFFFF; font-size: 60px; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black; text-align: center;">{{ _("Search data") }}</h1>
+    </div>
+    <div class="search-input form-group search-giant" >
+      <input id="field-main-search" type="text" class="form-control raz" name="q" value="" autocomplete="off" placeholder="{% block search_placeholder %}{{ placeholder }}{% endblock %}" />
+      <button type="submit">
+        <i class="fa-solid fa-magnifying-glass fa-beat" style="color: #191E30"></i>
+        <span class="sr-only" id="search-label">{{ _('Search') }}</span>
+      </button>
+    </div>
+  </form>
+</div>
+

@@ -1,0 +1,172 @@
+# Thai translations for ckanext-statsCharts.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the ckanext-statsCharts
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ckanext-statsCharts 0.0.1\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-06-27 15:43+0700\n"
+"PO-Revision-Date: 2024-06-27 15:44+0700\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: th\n"
+"Language-Team: th <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ckanext/statscharts/templates/header.html:26
+#: ckanext/statscharts/templates/header.html:28
+msgid "User"
+msgstr ""
+
+#: ckanext/statscharts/templates/header.html:32
+#: ckanext/statscharts/templates/header.html:34
+msgid "Site Statistics"
+msgstr ""
+
+#: ckanext/statscharts/templates/header.html:39
+msgid "Sysadmin settings"
+msgstr ""
+
+#: ckanext/statscharts/templates/header.html:41
+msgid "Admin"
+msgstr ""
+
+#: ckanext/statscharts/templates/header.html:46
+msgid "View profile"
+msgstr ""
+
+#: ckanext/statscharts/templates/header.html:53
+#, python-format
+msgid "Dashboard (%(num)d new item)"
+msgid_plural "Dashboard (%(num)d new items)"
+msgstr[0] ""
+
+#: ckanext/statscharts/templates/header.html:56
+msgid "Dashboard"
+msgstr ""
+
+#: ckanext/statscharts/templates/header.html:62
+#: ckanext/statscharts/templates/header.html:64
+msgid "Profile settings"
+msgstr ""
+
+#: ckanext/statscharts/templates/header.html:70
+#: ckanext/statscharts/templates/header.html:72
+msgid "Log out"
+msgstr ""
+
+#: ckanext/statscharts/templates/header.html:80
+msgid "Account"
+msgstr ""
+
+#: ckanext/statscharts/templates/header.html:85
+msgid "Log in"
+msgstr ""
+
+#: ckanext/statscharts/templates/header.html:90
+msgid "Register"
+msgstr ""
+
+#: ckanext/statscharts/templates/header.html:228
+msgid "Toggle navigation"
+msgstr ""
+
+#: ckanext/statscharts/templates/header.html:245
+msgid "Home"
+msgstr ""
+
+#: ckanext/statscharts/templates/header.html:253
+msgid "Datasets"
+msgstr ""
+
+#: ckanext/statscharts/templates/header.html:261
+msgid "Organizations"
+msgstr ""
+
+#: ckanext/statscharts/templates/header.html:269
+msgid "Groups"
+msgstr ""
+
+#: ckanext/statscharts/templates/header.html:277
+msgid "About"
+msgstr ""
+
+#: ckanext/statscharts/templates/home/snippets/dashboard_stats.html:5
+msgid "statistics"
+msgstr ""
+
+#: ckanext/statscharts/templates/home/snippets/dashboard_stats.html:11
+#: ckanext/statscharts/templates/home/snippets/promoted.html:46
+msgid "dataset"
+msgstr ""
+
+#: ckanext/statscharts/templates/home/snippets/dashboard_stats.html:11
+msgid "datasets"
+msgstr ""
+
+#: ckanext/statscharts/templates/home/snippets/dashboard_stats.html:17
+#: ckanext/statscharts/templates/home/snippets/promoted.html:46
+msgid "organization"
+msgstr ""
+
+#: ckanext/statscharts/templates/home/snippets/dashboard_stats.html:17
+msgid "organizations"
+msgstr ""
+
+#: ckanext/statscharts/templates/home/snippets/dashboard_stats.html:23
+#: ckanext/statscharts/templates/home/snippets/promoted.html:46
+msgid "group"
+msgstr ""
+
+#: ckanext/statscharts/templates/home/snippets/dashboard_stats.html:23
+msgid "groups"
+msgstr ""
+
+#: ckanext/statscharts/templates/home/snippets/dashstats.html:11
+msgid "Users"
+msgstr "จำนวนผู้ใช้งาน"
+
+#: ckanext/statscharts/templates/home/snippets/dashstats.html:18
+msgid "Visitors"
+msgstr "จำนวนผู้เข้าชม"
+
+#: ckanext/statscharts/templates/home/snippets/dashstats.html:27
+msgid "Dataset by Group"
+msgstr "จำนวนข้อมูลจำแนกตามหมวดหมู่"
+
+#: ckanext/statscharts/templates/home/snippets/dashstats.html:36
+msgid "Dataset by Organization"
+msgstr "จำนวนข้อมูลจำแนกตามองค์กร"
+
+#: ckanext/statscharts/templates/home/snippets/promoted.html:8
+msgid "Welcome to CKAN"
+msgstr "ยินดีต้อนรับสู่ CKAN Statscharts"
+
+#: ckanext/statscharts/templates/home/snippets/promoted.html:10
+msgid ""
+"This is a nice introductory paragraph about CKAN or the site in general. "
+"We don't have any copy to go here yet but soon we will"
+msgstr ""
+
+#: ckanext/statscharts/templates/home/snippets/promoted.html:33
+msgid "Overview"
+msgstr "ข้อมูลโดยรวม"
+
+#: ckanext/statscharts/templates/home/snippets/search.html:2
+msgid "Search Info..."
+msgstr "ค้นหาชุดข้อมูล..."
+
+#: ckanext/statscharts/templates/home/snippets/search.html:34
+msgid "Search data"
+msgstr "ค้นหาชุดข้อมูล"
+
+#: ckanext/statscharts/templates/home/snippets/search.html:39
+msgid "Search"
+msgstr "ค้นหา"
+

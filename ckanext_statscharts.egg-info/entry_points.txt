@@ -1,0 +1,7 @@
+
+        [ckan.plugins]
+        statscharts=ckanext.statscharts.plugin:StatschartsPlugin
+
+        [babel.extractors]
+        ckan = ckan.lib.extract:extract_ckan
+    

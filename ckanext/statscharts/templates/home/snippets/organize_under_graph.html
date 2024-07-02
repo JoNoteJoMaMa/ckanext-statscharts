@@ -1,0 +1,28 @@
+<div class="scrollable-container">
+    {% for org in orgs %}
+      {% set color = colors[loop.index0 % colors|length] %}
+      <div class="align-items-start">
+        {% snippet 'snippets/org_names.html', org=org, color=color, truncate=50, truncate_title=35 %}
+      </div>
+    {% endfor %}
+  </div>
+  
+  <style>
+    .scrollable-container {
+      max-height: 150px; /* Adjust the height as needed */
+      overflow: scroll;
+      scrollbar-color: white grey;
+    }
+  
+    ::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 7px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: rgba(0, 0, 0, .5);
+      box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
+  </style>
+  
