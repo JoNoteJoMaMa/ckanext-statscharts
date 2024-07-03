@@ -9,22 +9,22 @@
         <div class="col" style="display: flex; flex-direction: column; align-items: center; flex: 1; margin: 0px;">
             <div class="card" style="background-color: white; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; box-sizing: border-box; width: 100%; text-align: center; height: 210px; background-image: linear-gradient(#3A3F6B, #717BD1)">
                 <h1 style="color: #FFFFFF">{{ _('Users') }}</h1>
-                <div class="d-flex justify-content-between"style="margin-top: 45px">
-                <h1 style="color: #FFFFFF">{{ sysadmins|length }}</h1>
-                <i class="fa-solid fa-user fa-3x"></i>
+                <div class="d-flex justify-content-between" style="margin-top: 45px">
+                    <h1 style="color: #FFFFFF">{{ sysadmins|length }}</h1>
+                    <i class="fa-solid fa-user fa-3x"></i>
                 </div>
             </div>
             <div class="card" style="background-color: white; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; box-sizing: border-box; width: 100%; text-align: center; height: 210px; background-image: linear-gradient(#3A3F6B, #717BD1)">
                 <h1 style="color: #FFFFFF">{{ _('Visitors') }}</h1>
-                <div class="d-flex justify-content-between"style="margin-top: 45px">
-                <h1 style="color: #FFFFFF">{{ h.thai_gdc_get_stat_all_view() }}</h1>
-                <i class="fa-solid fa-eye fa-3x"></i>
+                <div class="d-flex justify-content-between" style="margin-top: 45px">
+                    <h1 style="color: #FFFFFF">{{ h.thai_gdc_get_stat_all_view() }}</h1>
+                    <i class="fa-solid fa-eye fa-3x"></i>
                 </div>
             </div>
         </div>
         <div class="col" style="display: flex; flex-direction: column; gap: 20px; flex: 1; margin: 0px;">               
             <div class="card" style="background-color: white; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding-top: 20px; padding-bottom: 20px; padding-left: 15px;padding-right: 15px; box-sizing: border-box; width: 100%; height: 420px; background-image: linear-gradient(#3A3F6B, #717BD1)">
-                <h2 class="center" style="color: #FFFFFF; align-items: center">{{ _('Dataset by Group') }}</h2>
+                <h2 style="color: #FFFFFF">{{ _('Dataset by Group') }}</h2>
                 <div id="datasetByGroup" style="width: 100%; height: 200px; margin: 0 auto;"></div>
                 <div class="list" style="margin: 0; padding: 0">                 
                     {% snippet 'home/snippets/group_under_graph.html', stats=stats, groups=groups, colors=colors %}              
@@ -33,7 +33,7 @@
         </div>
         <div class="col" style="display: flex; flex-direction: column; gap: 20px; flex: 1; margin: 0px;">
             <div class="card" style="background-color: white; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding-top: 20px; padding-bottom: 20px; padding-left: 15px;padding-right: 15px; box-sizing: border-box; width: 100%; height: 420px; background-image: linear-gradient(#3A3F6B, #717BD1)">
-                <h2 class="center" style="color: #FFFFFF;">{{ _('Dataset by Organization') }}</h2>
+                <h2 style="color: #FFFFFF">{{ _('Dataset by Organization') }}</h2>
                 <div id="datasetByOrg" style="width: 100%; height: 350px; margin: 0 auto;"></div>
                 <div class="list" style="margin: 0; padding: 0">         
                     {% snippet 'home/snippets/organize_under_graph.html', stats=stats, orgs=orgs, colors=colors_org %}               
@@ -177,9 +177,19 @@ function drawCharts(){
         }
     });
 }
+
 document.addEventListener('DOMContentLoaded', function () {
     setTimeout(drawCharts, 100); // Delay to ensure proper dimensions
     window.addEventListener('resize', drawCharts);
-});     
+});
 </script>
+
+<style>
+/* Media query for mobile screens */
+@media (max-width: 767px) {
+    #datasetByGroup, #datasetByOrg {
+        height: 250px; /* Increase the height for mobile screens */
+    }
+}
+</style>
 

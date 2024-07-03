@@ -1,5 +1,23 @@
 {% set intro = g.site_intro_text %}
 {% set stats = h.get_site_statistics() %}
+<style>
+  /* Default margin for larger screens */
+  .image-pie-container {
+    margin-left: 70px;
+  }
+
+  /* Remove margin for mobile screens */
+  @media (max-width: 768px) {
+    .image-pie-container {
+      margin: 0 !important;
+    }
+    .featured img {
+      width: 100%; /* Ensure the image takes the full width of its container */
+      height: auto; /* Maintain the aspect ratio */
+    }
+  }
+</style>
+
 <div class="container" style="margin-top: 10px;">
   <div class="justify-content-center">
     {% if intro %}
@@ -14,16 +32,16 @@
     {% endif %}
   </div>
 
-  <div class="container" style="margin-left: 70px">
+  <div class="container image-pie-container">
     <div class="row align-items-center">
       <div class="col">
         {% block home_image %}
-        <section class="featured media-overlay hidden-xs">
+        <section class="featured media-overlay">
           {% block home_image_content %}
             {% if g.promoted_banner %}
-              <img class="img-responsive" style="min-width: 100%;" src="{{ h.url_for_static(g.promoted_banner) }}" alt="Agency Catalog promote banner" width="420" height="220" />
+              <img class="img-responsive" style="width: 100%; height: auto;" src="{{ h.url_for_static(g.promoted_banner) }}" alt="Agency Catalog promote banner" />
             {% else %}
-              <img class="img-responsive" style="min-width: 100%;" src="{{ h.url_for_static('/base/images/gdc-banner.jpg') }}" alt="GD Catalog banner" width="420" height="220" />
+              <img class="img-responsive" style="width: 100%; height: auto;" src="{{ h.url_for_static('/base/images/gdc-banner.jpg') }}" alt="GD Catalog banner" />
             {% endif %}
           {% endblock %}
         </section>
@@ -31,7 +49,7 @@
       </div>
       <div class="col d-flex justify-content-center align-items-center flex-column" style="margin-top: 50px">
         <div id="chartTitle" style="margin-bottom: 5px; font-size: 16px; font-weight: bold;">{{_('Overview')}}</div>
-        <canvas id="myPieChart" style="max-width: 400px;max-height:400px" ></canvas>
+        <canvas id="myPieChart" style="max-width: 400px; max-height: 400px;"></canvas>
       </div>
     </div>
   </div>
@@ -101,7 +119,7 @@
       }
     }]
   };
-  
+
   // Render the pie chart
   window.onload = function() {
     const ctx = document.getElementById('myPieChart').getContext('2d');
