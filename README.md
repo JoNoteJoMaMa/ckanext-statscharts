@@ -10,8 +10,7 @@ Statcharts เป็น extension ของ Ckan ที่ทางคณะผ�
 
 ## Requirements
 
-**TODO:** For example, you might want to mention here which versions of CKAN this
-extension works with.
+ผู้ใช้ต้องติดตั้ง extension ทั้งหมดที่มีอยู่ในขั้นตอนการติดตั้งของ NECTEC จากเว็บไซต์ GitLab .
 
 If your extension works across different versions you can add the following table:
 
@@ -34,30 +33,27 @@ Suggested values:
 
 ## Installation
 
-**TODO:** Add any additional install steps to the list below.
-   For example installing any non-Python dependencies or adding any required
-   config settings.
+วิธีการติดตั้ง ckanext-statsCharts:
 
-To install ckanext-statsCharts:
-
-1. Activate your CKAN virtual environment, for example:
+1. เปิดใช้งานโหมด Developer โดยพิมพ์ command ตามด้านล่าง
 
      . /usr/lib/ckan/default/bin/activate
 
-2. Clone the source and install it on the virtualenv
+2. เข้าไปใน path ดังนี้
+   
+    cd /usr/lib/ckan/default
 
-    git clone https://github.com/JoNoteJoMaMa/ckanext-statsCharts.git
-    cd ckanext-statsCharts
-    pip install -e .
-	pip install -r requirements.txt
+4. ติดตั้งตัว extension ผ่าน command ด้านล่าง
 
-3. Add `statsCharts` to the `ckan.plugins` setting in your CKAN
-   config file (by default the config file is located at
-   `/etc/ckan/default/ckan.ini`).
+    pip install -e 'git+https://github.com/JoNoteJoMaMa/ckanext-statscharts#egg=ckanext-statscharts'
 
-4. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu:
+5. นำ Statchart ไว้ข้างหน้าสุดของ CKAN.PLUGIN ในไฟล์ ckan.ini
 
-     sudo service apache2 reload
+    ckan.plugins = statscharts .....
+
+7. รีโหลดตัว CKAN:
+
+    sudo supervisorctl reload
 
 
 ## Config settings
