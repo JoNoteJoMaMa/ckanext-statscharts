@@ -10,8 +10,8 @@ Statcharts เป็น extension ของ Ckan ที่ทางคณะผ�
 
 ## Requirements
 
-ผู้ใช้ต้องติดตั้ง extension ทั้งหมดที่มีอยู่ในขั้นตอนการติดตั้งของ NECTEC 
-จากเว็บไซต์ GitLab โดยให้นำ Statchart ไว้ข้างหน้าสุดของ CKAN.PLUGIN ในไฟล์ ckan.ini
+**TODO:** For example, you might want to mention here which versions of CKAN this
+extension works with.
 
 If your extension works across different versions you can add the following table:
 
